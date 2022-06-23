@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/sellerapp.css">
+    <title>Vendedor - <%= titulo %></title>
+    <!-- Custom fonts for this template-->
+    <link href="/css/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="/css/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+
+    <!--datables CSS básico-->
+    <link rel="stylesheet" type="text/css" href="/css/vendor/datatables/datatables.min.css" />
+    <!--datables estilo bootstrap 4 CSS-->
+    <link rel="stylesheet" type="text/css" href="/css/vendor/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css">
+</head>
+<body>
+    <style>
+
+        /* Diseño de alerta JS src: https://codepen.io/keikaavousi/pen/eYOmOpN */
+        
+          @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
+        }
+        h3{
+            font-family:Quicksand;
+        }
+
+        #mostrar-alert {
+            position:absolute;
+            right: 10px;
+            z-index: 20;
+        }
+
+        .alert{
+          width:350px;
+          height: 100px;
+          margin:5px;
+          padding:30px;
+          border-radius:5px;
+          box-shadow:0 0 15px 5px #ccc;
+        }
+        .close{
+          position:absolute;
+          width:30px;
+          height:30px;
+          opacity:0.5;
+          border-width:1px;
+          border-style:solid;
+          border-radius:50%;
+          right:15px;
+          top:25px;
+          text-align:center;
+          font-size:1.6em;
+          cursor:pointer;
+        }
+        .simple-alert {
+          background-color: #ebebeb;
+          border-left: 5px solid #6c6c6c;
+        }
+        .simple-alert .close {
+          border-color: #6c6c6c;
+          color: #6c6c6c;
+        }
+        .success-alert {
+          background-color: #a8f0c6;
+          border-left: 5px solid #178344;
+        }
+        .success-alert .close {
+          border-color: #178344;
+          color: #178344;
+        }
+        .danger-alert {
+          background-color: #f7a7a3;
+          border-left: 5px solid #8f130c;
+        }
+        .danger-alert .close {
+          border-color: #8f130c;
+          color: #8f130c;
+        }
+        .warning-alert {
+          background-color: #ffd48a;
+          border-left: 5px solid #8a5700;
+        }
+        .warning-alert .close {
+          border-color: #8a5700;
+          color: #8a5700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        </style>
+    <header>
+        <p class="logo">StayHigh Club</p>
+        <nav>
+            <ul class="nav__links">
+                <li> <a href="/seller-products" class="activelink">Producto</a> </li>
+                <li> <a href="/seller-products/operations">Mis Operaciones</a> </li>
+            </ul>
+        </nav>
+        <button class="invisible">                 </button>
+        <div class="navigation">
+            <div class="userBx">
+                <div class="imgBx">
+                    <img src="https://i.picsum.photos/id/176/200/200.jpg?hmac=c9CJbdQxNRFwPysb-dsVjeNmtU0quZAdXpf0FG2CfxU" alt="">
+                </div>
+                <p class="username"> <%= user.userName %> </p>
+            </div>
+            <div class="menuToggle">
+            </div>
+            <ul class="menu">
+                <li><a href=""><ion-icon name="contact"></ion-icon> Mi perfil</a></li>
+                <li><a href="/logout"><ion-icon name="log-out"></ion-icon> Logout</a></li>
+            </ul>
+        </div>
+    </header>

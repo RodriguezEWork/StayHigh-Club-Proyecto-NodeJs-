@@ -1,0 +1,15 @@
+<%- include('layouts/authmain', {titulo: 'Registro'}); %>
+
+<div class="login">
+	<h1>Registrarse</h1>
+    <form accion="/register" method="post">
+    	<input type="text" name="nombre" placeholder="Ingresa un usuario" required="required" />
+    	<input type="email" name="email" placeholder="Ingresa un correo" required="required" />
+        <input type="password" name="password" placeholder="Ingresa una contraseña" required="required" />
+        <input type="password" name="repassword" placeholder="Repita la contraseña" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Registrarse.</button>
+    </form>
+    <a href="/login" class="cta">
+        <span class="hover-underline-animation"> ¿Ya estas registrado? </span>
+    </a>
+</div>

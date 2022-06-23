@@ -1,0 +1,13 @@
+<%- include('layouts/authmain', {titulo: 'Login'}); %>
+
+<div class="login">
+	<h1>Iniciar Sesión</h1>
+    <form accion="/login" method="post">
+    	<input type="email" name="email" placeholder="Ingrese su correo..." required="required" />
+        <input type="password" name="password" placeholder="Ingrese su contraseña..." required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Ingresar.</button>
+    </form>
+    <a href="/register" class="cta">
+        <span class="hover-underline-animation"> Registrarse </span>
+    </a>
+</div>

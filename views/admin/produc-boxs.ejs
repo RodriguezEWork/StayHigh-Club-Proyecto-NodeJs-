@@ -1,0 +1,132 @@
+<%- include('../layouts/main'); %>
+
+    <div id="mostrar-alert"></div>
+
+    <div class="container">
+        <h1>Productos de la caja</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table id="tablaPersonas" class="table table-striped table-bordered table-condensed"
+                            style="width:100%">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Stock</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <% productsBox.forEach((dato)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= dato.id %>
+                                        </td>
+                                        <td>
+                                            <% if (dato.Product?.id > 0) { %>
+                                                <%= dato.Product.name %>
+                                                <%} else { %>
+                                                <%= dato.Combination?.name %>
+                                            <% } %>
+                                        </td>
+                                        <td>
+                                            <%= dato.stock_inbox %>
+                                        </td>
+                                        <td></td>
+                                        <input type="hidden" id="ProductId-<%= dato.id %>" value="<%= dato.ProductId %>">
+                                        <input type="hidden" id="CombinationId-<%= dato.id %>" value="<%= dato.CombinationId %>">
+                                    </tr>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal para CRUD-->
+        <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="formPersonas">
+                        <div class="modal-body">
+                            <input type="hidden" value="" class="form-control" name="id" id="id">
+                            <input type="hidden" value="<%= cashboxId %>" class="form-control" name="cashboxId" id="cashboxId">
+                            <div class="d-flex justify-content-around align-items-center">
+                                <div class="form-group d-flex justify-content-around align-items-center" style="width: 45%;">
+                                    <b>Es un Producto</b>
+                                    <input type="radio" name="tipo_producto" value="Product" id="radioProducto">
+                                </div>
+                                <div class="form-group d-flex justify-content-around align-items-center" style="width: 45%;">
+                                    <b>Es una Combinación</b>
+                                    <input type="radio" name="tipo_producto" value="Combination">
+                                </div>
+                            </div>
+                            <style>
+                                .divBox {
+                                    display: none;
+                                }
+                            </style>
+                            <div class="divBox Product">
+                                <div class="form-group">
+                                    <label for="ProductSelect" class="col-form-label">Productos:</label>
+                                    <select name="ProductSelect" id="ProductSelect" class="form-control">
+                                        <% productos.forEach((dato)=> { %>
+                                        <option value="<%= dato.id %>" stock="<%= dato.stock %>"><%= dato.name %></option>
+                                        <% }); %>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="StockProduct" class="col-form-label">Stock de productos:</label>
+                                    <input type="number" min="1" class="form-control" name="StockProduct" id="StockProduct">
+                                </div>
+                            </div>
+                            <div class="divBox Combination">
+                                <div class="form-group">
+                                    <label for="CombinationSelect" class="col-form-label">Combinaciones:</label>
+                                    <select name="CombinationSelect" id="CombinationSelect" class="form-control">
+                                        <% combinations.forEach((dato)=> { %>
+                                        <option value="<%= dato.id %>" stock="<%= dato.stock %>"><%= dato.name %></option>
+                                        <% }); %>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="StockCombination" class="col-form-label">Stock de combinaciones:</label>
+                                    <input type="number" min="1" max="30" class="form-control" name="StockCombination" id="StockCombination">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../layouts/footer'); %>
+
+    <script type="text/javascript" src="/js/ABM/generalJquery.js"></script>
+    <script type="text/javascript" src="/js/ABM/productboxsJquery.js"></script>
+</body>
+</html>

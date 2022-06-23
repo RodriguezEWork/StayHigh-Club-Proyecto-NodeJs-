@@ -1,0 +1,139 @@
+<%- include('../layouts/main'); %>
+
+    <div id="mostrar-alert"></div>
+
+    <div class="container">
+        <h1>Tickets</h1>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table id="tablaPersonas" class="table table-striped table-bordered table-condensed"
+                            style="width:100%">
+                            <thead class="text-center">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Tipo</th>
+                                    <th>Descripcion</th>
+                                    <th>Precio</th>
+                                    <th>Stock</th>
+                                    <th>Codigo Qr</th>
+                                    <th>Fecha limite</th>
+                                    <th>Hora Limite</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <% tickets.forEach((dato)=> { %>
+                                    <tr>
+                                        <td>
+                                            <%= dato.id %>
+                                        </td>
+                                        <td>
+                                            <%= dato.type %>
+                                        </td>
+                                        <td>
+                                            <%= dato.description %>
+                                        </td>
+                                        <td>
+                                            <%= dato.price %>
+                                        </td>
+                                        <td>
+                                            <%= dato.stock %>
+                                        </td>
+                                        <td>
+                                            <%= dato.qr_code %>
+                                        </td>
+                                        <td>
+                                            <%= dato.valid_date %>
+                                        </td>
+                                        <td>
+                                            <%= dato.valid_time %>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal para CRUD-->
+        <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="formPersonas">
+                        <div class="modal-body">
+                            <input type="hidden" value="" class="form-control" name="id" id="id">
+                            <div class="d-flex justify-content-around">
+                                <div class="form-group" style="width: 45%;">
+                                    <label for="type" class="col-form-label">Tipo:</label>
+                                    <select name="type" id="type" class="form-control">
+                                        <option value="General">General</option>
+                                        <option value="Anticipado">Anticipado</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="stock" class="col-form-label">Stock:</label>
+                                    <input type="number" class="form-control" name="stock" id="stock">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div class="form-group">
+                                    <label for="price" class="col-form-label">Precio:</label>
+                                    <input type="number" class="form-control" name="price" id="price">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qr_code" class="col-form-label">Codigo QR:</label>
+                                    <input type="text" class="form-control" name="qr_code" id="qr_code">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-around">
+                                <div class="form-group" style="width: 45%;">
+                                    <label for="valid_date" class="col-form-label">Fecha Limite:</label>
+                                    <input type="date" class="form-control" name="valid_date" id="valid_date">
+                                </div>
+                                <div class="form-group" style="width: 45%;">
+                                    <label for="valid_time" class="col-form-label">Hora Limite:</label>
+                                    <input type="time" name="valid_time" id="valid_time" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="col-form-label">Descripción:</label>
+                                <input type="text" name="description" id="description" class="form-control">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" id="btnGuardar" class="btn btn-dark">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../layouts/footer'); %>
+
+    <script type="text/javascript" src="/js/ABM/generalJquery.js"></script>
+    <script type="text/javascript" src="/js/ABM/ticketsJquery.js"></script>
+</body>
+</html>

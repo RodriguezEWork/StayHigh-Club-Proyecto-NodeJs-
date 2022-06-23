@@ -1,0 +1,358 @@
+:root {
+    --primary-color: #f0fbff;
+    --secundary-color: #acdcee;
+    --third-color: #2e94b9;
+    --third-color-darken: #2e94b9cc;
+    --fourt-color: #475053;
+    --fourt-color-darken: #475053cc; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--secundary-color);
+}
+
+/* Inicio de NavBar de estilo flexbox src: 'https://www.youtube.com/watch?v=PwWHL3RyQgk' */
+
+.logo {
+    color: var(--primary-color);
+    font-size: 30px;
+    font-weight: 700;
+}
+
+li, a, button, p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    font-size: 16;
+    color: var(--primary-color);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    background-color: var(--fourt-color);
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    padding: 9px 25px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a.activelink {
+    padding: 9px 25px;
+    background-color: var(--third-color);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    background-color: var(--third-color-darken);
+}
+
+button {
+    padding: 9px 25px;
+    background-color: var(--third-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition:  all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: var(--third-color-darken);
+}
+
+.invisible {
+    opacity: 0.0;
+}
+
+/* Fin de NavBar de estilo flexbox */
+
+/* Inicio de DropDown de usuario src: 'https://www.youtube.com/watch?v=bC6vOWWNoas' */
+
+.navigation {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 60px;
+    z-index: 2;
+    border-radius: 50px;
+    background-color: var(--third-color);
+    display: flex;
+    justify-content: space-between;
+    transition: height 0.5s, width 0.5s, border-radius 0.5s;
+    transition-delay: 0s, 0.75s, 0.15s;
+    overflow: hidden;
+}
+
+.navigation.active {
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    transition: width 0.5s, height 0.5s, border-radius 0.5s;
+    transition-delay: 0s, 0.75s, 0.15s;
+}
+
+.navigation .userBx {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+.navigation.active .userBx {
+    width: calc(100% - 60px);
+    transition-delay: 0s;
+}
+
+.navigation.active .userBx .username {
+    white-space: nowrap;
+    color: var(--primary-color);
+    margin-left: 5px;
+    font: 1x1em;
+}
+
+.navigation .userBx .imgBx {
+    min-width: 60px;
+    height: 60px;
+    background-color: #000000;
+    border-radius: 50%;
+    border: 5px solid var(--third-color-darken);
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.navigation .userBx .imgBx img {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.navigation .menuToggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation .menuToggle::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: rgb(212, 208, 208);
+    transform: translateY(-10px);
+    box-shadow: 0 10px var(--primary-color);
+    transition: 0.5s;
+}
+
+.navigation .menuToggle::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: var(--primary-color);
+    transform: translateY(10px);
+    transition: 0.5s;
+}
+
+.navigation.active .menuToggle::before {
+    transform: translateY(0px) rotate(45deg);
+    box-shadow: 0 0 var(--primary-color);
+}
+
+.navigation.active .menuToggle::after {
+    transform: translateY(0px) rotate(-45deg);
+}
+
+.menu {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 80px);
+    margin-top: 80px;
+    padding: 0 0 30px 30px;
+    border-top: 2px solid rgb(255, 252, 252);
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    color: var(--fourt-color-darken);
+}
+
+.menu li a ion-icon {
+    color: var(--primary-color);
+    font-size: 1.5em;
+}
+
+.menu li a ion-icon:hover {
+    color: var(--fourt-color-darken);
+    font-size: 1.5em;
+}
+
+/* Fin de DropDown de usuario */
+
+/* Inicio de la carta del producto de venta src: 'https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=multiple-item-product-carousel' */
+
+.generalCards {
+    margin: 0 auto;
+    max-width: 1200px;
+    min-height: calc(100vh - 160px);
+}
+
+.SellCards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.SearchCards {
+    border-radius: 10px;
+    border: none;
+    border-bottom: 4px solid var(--third-color);
+    width: 100%;
+    height: 40px;
+    margin: 2rem 0;
+    background-color: transparent;
+    outline: none;
+    font-size: 20px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.SearchCards::placeholder {
+    color: var(--fourt-color-darken);
+}
+
+.thumb-wrapper {
+	padding: 15px 10px;
+	background: #fff;
+	border-radius: 6px;
+	text-align: center;
+	position: relative;
+	box-shadow: 4px 4px 7px rgba(0,0,0,0.2);
+    background-color: var(--primary-color);
+    height: 325px;
+    width: 250px;
+    margin: 20px;
+}
+.img-box {
+	height: 150px;
+	margin-bottom: 20px;
+	width: 100%;
+	position: relative;
+}
+.img-box img {	
+	max-width: 100%;
+	max-height: 100%;
+	display: inline-block;
+	position: absolute;
+	bottom: 0;
+	margin: 0 auto;
+	left: 0;
+	right: 0;
+}
+.thumb-wrapper h4 {
+	font-size: 18px;
+}
+.thumb-wrapper h4, .thumb-wrapper p, .thumb-wrapper ul {
+	margin-bottom: 10px;
+    color: #24252a;
+}
+.thumb-wrapper p b {
+    font-size: 18px;
+}
+.thumb-content .btn {
+	color: var(--third-color);
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background: none;
+	border: 1px solid var(--third-color);
+	padding: 6px 14px;
+	margin-top: 5px;
+	line-height: 16px;
+	border-radius: 20px;
+    text-decoration: none;
+}
+.thumb-content .btn:hover, .thumb-content .btn:focus {
+	color: #fff;
+	background: var(--third-color);
+	box-shadow: none;
+}
+.thumb-content .btn i {
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 5px;
+}
+.item-price {
+	font-size: 13px;
+	padding: 2px 0;
+}
+.item-price strike {
+	opacity: 0.7;
+	margin-right: 5px;
+}
+
+/* Fin de la carta del producto de venta */
+
+/* Inicio del footer src: 'Personal' */
+
+.FooterSaleProducts {
+    height: 60px;
+    background-color: var(--fourt-color);
+}
+
+.FooterSaleProducts p {
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+}
+
+.FooterSaleProducts p a {
+    font-size: 20px;
+    color: var(--third-color);
+    text-decoration: none;
+}
+
+/* Fin del footer */

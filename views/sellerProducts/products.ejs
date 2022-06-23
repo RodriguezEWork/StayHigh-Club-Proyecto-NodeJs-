@@ -1,0 +1,31 @@
+<%- include('../layouts/sellerMain', {titulo: 'Productos'}); %>
+
+<div id="mostrar-alert"></div>
+
+<main>
+    <div class="generalCards">
+        <input type="search" name="search" id="search" class="SearchCards" placeholder="Ingrese el producto que deseas buscar...">
+        <div class="SellCards" id="sellerSection">
+    
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('../layouts/sellerFooter'); %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    var usuario = '<%- user.cashbox %>';
+    let menuToggle = document.querySelector('.menuToggle');
+    let navigation = document.querySelector('.navigation');
+    
+    menuToggle.onclick = function() {
+        navigation.classList.toggle('active');
+    }
+    
+</script>
+<script src="js/sellerProductsJquery.js"></script>
+</body>
+</html>
