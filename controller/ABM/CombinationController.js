@@ -1,5 +1,5 @@
 const { Combination } = require("../../models/Combination");
-const { Product_Combination } = require("../../models/product_Combination");
+const { Product_Combination } = require("../../models/product_combination");
 const { Box_Product } = require("../../models/box_product");
 const { Sale } = require("../../models/Sale");
 const formidable = require('formidable');

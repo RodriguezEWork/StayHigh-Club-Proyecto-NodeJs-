@@ -1,7 +1,7 @@
 const { Box_Product } = require("../../models/box_product");
 const { Combination } = require("../../models/Combination");
 const { Product } = require("../../models/Product");
-const { Product_Combination } = require("../../models/product_Combination");
+const { Product_Combination } = require("../../models/product_combination");
 
 const indexProductBox = async (req, res) => {
 
