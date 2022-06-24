@@ -3,12 +3,19 @@ const app = express();
 const session = require('express-session');
 const passport = require('passport');
 const ejs = require('ejs');
+const cors = require('cors');
 const { sequelize } = require('./database/db');
 const { User } = require('./models/User');
 const moment = require('moment');
 const { Cashbox } = require('./models/Cashbox');
 require('./models/asociations')
 const router = express.Router();
+
+const corsOptions = {
+    credentials: true,
+    origin: "https://uur.herokuapp.com/",
+};
+app.use(cors(corsOptions));
 
 app.use(
     session({
