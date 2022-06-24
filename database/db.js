@@ -1,11 +1,16 @@
 const Sequelize = require('sequelize');
 
+const hosting = process.env.DB_HOST || 'localhost';
+const nombre = process.env.DB_NAME || 'nodebar';
+const password = process.env.DB_PASS || 'root';
+const usuario = process.env.DB_USER || 'root';
+
 const sequelize = new Sequelize(
-    'NodeBar',
-    'root',
-    'root',
+    nombre,
+    usuario,
+    password,
     {
-        host: 'localhost',
+        host: hosting,
         dialect: 'mysql',
     }
 )
