@@ -47,7 +47,9 @@ app.use((req, res, next) => {
     next();
 })
 
-app.listen(5000, (req, res) => {
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, (req, res) => {
     console.log('Servidor funcionando')
 })
 
