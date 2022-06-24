@@ -1,0 +1,9 @@
+Administrador:
+
+Correo = admin@admin.com
+Contraseña = 123456
+
+Vendedor
+
+Correo = seller@seller.com
+Contraseña = 123456
